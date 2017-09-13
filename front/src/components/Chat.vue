@@ -1,3 +1,5 @@
+(function(){
+
 <template>
   <div class="chat-area">
       
@@ -23,14 +25,14 @@ import moment from 'moment'
 */
 export default {
   name: 'chat',
-  data () {
+  data : function () {
     return {
-        messages  :[{
-          text : 'Please feel free to ask any question I will try my best to answer',
-          user : 'user',
-          date : '2017-09-10 20:32:11'
-        }],
-        message : ''
+      messages  :[{
+        text : 'Please feel free to ask any question I will try my best to answer',
+        user : 'user',
+        date : '2017-09-10 20:32:11'
+      }],
+      message : ''
     }
   },
   methods: {
@@ -136,3 +138,5 @@ export default {
 </style>
 
 
+
+}());

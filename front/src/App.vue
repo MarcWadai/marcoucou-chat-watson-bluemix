@@ -1,3 +1,4 @@
+(function(){
 <template>
   <div id="app">    
     <router-view></router-view>
@@ -19,3 +20,4 @@ export default {
 }
 
 </style>
+}());

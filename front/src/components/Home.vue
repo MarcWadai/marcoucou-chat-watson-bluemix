@@ -1,3 +1,5 @@
+(function(){
+
 <template>
   <div class="main-chat">
     <h1 id="title-chat">What do you want to know about Marc ?</h1>    
@@ -21,7 +23,7 @@ import Chat from './Chat'
 
 export default {
   name: 'home',
-  data () {
+  data : function () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
@@ -82,3 +84,5 @@ a {
 </style>
 
 
+
+}());

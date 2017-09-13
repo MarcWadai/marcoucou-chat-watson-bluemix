@@ -1,5 +1,5 @@
-export default {
-  state : {
-    messageToSend : ''
+  export default {
+    state : {
+      messageToSend : ''
+    }
   }
-}
