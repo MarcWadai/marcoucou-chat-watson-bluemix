@@ -4,3 +4,4 @@ front/public/
 front/dist/
 back/node_modules
 back/public/
+back/npm-debug.log

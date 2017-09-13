@@ -3,18 +3,23 @@ var router = express.Router();
 var conversation = require('../services/watson');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     var context = {};
+    console.log("receive send message to watson",req.body);
+    var body = {text : req.body.text};    
     conversation.message({
         workspace_id: process.env.WATSON_WORKSPACE_ID,
-        input: {'text': 'whats your name'},
+        input: body,
         context: context
       },  function(err, response) {
-        if (err)
+        if (err){
           console.log('error:', err);
-        //   res.status()
-        else
+          res.send(err);
+        }          
+        else{
           console.log(JSON.stringify(response, null, 2));
+          res.json(response);
+        }          
       });
   
 });
