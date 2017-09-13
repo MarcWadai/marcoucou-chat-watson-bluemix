@@ -1,0 +1,4 @@
+front/node_modules
+front/.env
+front/public/*
+back/node_modules
