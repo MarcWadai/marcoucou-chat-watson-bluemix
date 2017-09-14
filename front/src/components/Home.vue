@@ -2,8 +2,10 @@
 
 <template>
   <div class="main-chat">
-    <h1 id="title-chat">What do you want to know about Marc ?</h1>    
-    <h3>This is a bot powered by IBM Watson, ask him question about Marc :)</h3>    
+    <div class="title-marcoucou-chat">
+      <h1 id="title-chat">What do you want to know about Marc ?</h1>    
+      <h3>This is a bot powered by IBM Watson, ask him question about Marc :)</h3>    
+    </div>    
     
     <div class="chat-wrapper">
       <chat></chat>
@@ -34,8 +36,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.title-marcoucou-chat{
+  height: 15%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .chat-wrapper{  
-  height: 90%;  
+  height: 78%;  
   position : relative;
 }
 h1, h2 {
@@ -67,18 +75,21 @@ a {
   color: white;
   display: block;
   overflow-y: scroll;
+  flex-direction: column;
+  display: flex;
 }
 
 .main-chat-footer{
   position : fixed;
   bottom : 0;
   width: 100%;
+  height: 5%;
   text-align: center;
 }
 
 #title-chat{
   margin : 24px 0px 25px 0px;
-  font-size: 40px;
+  font-size: 35px;
 
 }
 </style>

@@ -5,13 +5,13 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 export default {
-  sendMessage (message) {
-     return new Promise((resolve, reject) => {
-       Vue.http.post(Constant.API_URL + 'watson', message).then(res => {
+  sendMessage : function (message) {
+     return new Promise(function (resolve, reject) {
+       Vue.http.post(Constant.API_URL + 'watson', message).then(function (res) {
           resolve(res)
-       }, err => {
+       }, function (err) {
           reject(err)
        })
      })
-  }
+    }
 }

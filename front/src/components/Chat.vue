@@ -3,7 +3,7 @@
 <template>
   <div class="chat-area">
       
-      <div class="message-wrapper" >
+      <div id="message-wrapper" >
         <div v-for="item in messages">
           <div class="single-message-container" v-bind:class="[(item.user === 'watson') ? 'left' : 'right']">
               <div class="chat-bubble" v-bind:class="[(item.user === 'watson') ? 'left' : 'right']">
@@ -12,11 +12,12 @@
           </div>
         </div>
       </div>
-      <div class="question-wrapper">
-
-        <input type="text" class="question-input" v-model="message"></input>     
-        <button class="send-button" v-on:click="send"> SEND</button>
-      </div>      
+      <form v-on:submit.prevent="send">
+        <div class="question-wrapper">        
+            <input type="text" class="question-input" v-model="message"></input>     
+            <button class="send-button" v-on:click="send"> SEND</button>        
+        </div>     
+      </form>
   </div>
 </template>
 
@@ -35,30 +36,25 @@ export default {
   },
   methods: {
     send: function (event) {
-      let messObj = chatService.buildMess(this.$data.message, 'user')
+      var that = this
+      var messObj = chatService.buildMess(this.$data.message, 'user')
       // `this` inside methods points to the Vue instance
-      if (this.$data.message.length > 0) {
-        this.$data.messages.push(messObj)
-        watson.sendMessage(messObj).then((res) => {
+      if (that.$data.message.length > 0) {
+        that.$data.messages.push(messObj)
+        watson.sendMessage(messObj).then(function (res) {
           console.log(res)
           if (res.body.output.text.length > 0) {
-            this.$data.messages.push(chatService.buildMess(res.body.output.text[0], 'watson'))
+            that.$data.messages.push(chatService.buildMess(res.body.output.text[0], 'watson'))
           } else {
-            this.$data.messages.push(chatService.buildMess('Sorry I didn\'t understand', 'watson'))
+            that.$data.messages.push(chatService.buildMess('Sorry I didn\'t understand', 'watson'))
           }
-          console.log(res)
-        }).catch(err => {
+          // scroll to bottom of the list
+          var container = that.$el.querySelector('#message-wrapper')
+          container.scrollTop = container.scrollHeight
+        }).catch(function (err) {
             console.error(err)
         })
-        this.$data.message = ''
-      }
-    }
-  },
-  computed : {
-    isUser : function (item) {
-      return {
-        'left' : (item.user === 'watson'),
-        'right' : (item.user === 'user')
+        that.$data.message = ''
       }
     }
   }
@@ -145,24 +141,25 @@ export default {
 
 .question-wrapper{
   height: 6%;
-  width: 100%;
+  width: 93%;
   display: flex;
   align-items: center;
+  margin-left: 35px;
 }
 
-.message-wrapper{
-  height: 94%;
+#message-wrapper{
+  height: 100%;
   width: 100%;
   display : flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: auto;
+  margin-bottom: 24px;
 }
 
 .chat-area{
-  height: 87%;
+  height: 100%;
   margin: 0px 32px 0px 32px;
-  border-radius: 12px;
-  /* background-color: #095D4D; */
+  border-radius: 12px;  
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
