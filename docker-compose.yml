@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  nginx:
+    build: ./nginx
+    image: chat-nginx    
+    ports:
+        - 8080:80
+    links:
+        - back
+
+  mongodb:
+    build: ./data
+    image: chat-mongodb
+    ports:
+        - 27017:27017    
+
+  back:
+    build: ./back
+    image: chat-back    
+    links:
+        - mongodb
+    depends_on: 
+      - mongodb
