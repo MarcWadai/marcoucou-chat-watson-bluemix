@@ -1,6 +1,6 @@
 # chat-ai
 
-> Know more about Marc through this awesome chat
+> Know more about Marc through this watson chat
 
 ## Build Setup
 

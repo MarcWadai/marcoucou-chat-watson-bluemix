@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.2.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: back
+  name: back
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: back
+    spec:
+      containers:
+      - image: msiri/marcoucou-chat-ai:chat-back
+        name: back
+        resources: {}
+      restartPolicy: Always
+status: {}

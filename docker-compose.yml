@@ -3,7 +3,7 @@ version: '2'
 services:
   nginx:
     build: ./nginx
-    image: chat-nginx    
+    image: msiri/marcoucou-chat-ai:chat-nginx    
     ports:
         - 8080:80
     links:
@@ -11,13 +11,13 @@ services:
 
   mongodb:
     build: ./data
-    image: chat-mongodb
+    image: msiri/marcoucou-chat-ai:chat-mongodb
     ports:
         - 27017:27017    
 
   back:
     build: ./back
-    image: chat-back    
+    image: msiri/marcoucou-chat-ai:chat-back    
     links:
         - mongodb
     depends_on: 
