@@ -1,0 +1,25 @@
+{
+    "cloudantNoSQLDB": [
+        {
+            "credentials": {
+                "username": "da86d6ef-a097-4767-81f5-d1bed5ac1d95-bluemix",
+                "password": "a34232c9321a5a8e3ec148e05353e65afd242333f61d12f01795c59ef918051c",
+                "host": "da86d6ef-a097-4767-81f5-d1bed5ac1d95-bluemix.cloudant.com",
+                "port": 443,
+                "url": "https://da86d6ef-a097-4767-81f5-d1bed5ac1d95-bluemix:a34232c9321a5a8e3ec148e05353e65afd242333f61d12f01795c59ef918051c@da86d6ef-a097-4767-81f5-d1bed5ac1d95-bluemix.cloudant.com"
+            },
+            "syslog_drain_url": null,
+            "volume_mounts": [],
+            "label": "cloudantNoSQLDB",
+            "provider": null,
+            "plan": "Lite",
+            "name": "marcoucou-chat-cloudant",
+            "tags": [
+                "data_management",
+                "ibm_created",
+                "lite",
+                "ibm_dedicated_public"
+            ]
+        }
+    ]
+}

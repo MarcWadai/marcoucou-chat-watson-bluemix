@@ -1,0 +1,4 @@
+---
+applications:
+ - name: Marcoucou chat
+   memory: 256M

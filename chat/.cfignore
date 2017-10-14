@@ -1,0 +1,8 @@
+node_modules/
+*.DS_Store
+.vscode
+.git/
+.gitignore
+logs
+*.log
+front/*
